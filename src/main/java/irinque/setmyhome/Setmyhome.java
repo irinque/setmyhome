@@ -1,16 +1,69 @@
 package irinque.setmyhome;
 
+import irinque.setmyhome.commands.AdminDelHomeCommand;
+import irinque.setmyhome.commands.AdminListHomesCommand;
+import irinque.setmyhome.commands.DelHomeCommand;
+import irinque.setmyhome.commands.HomeCommand;
+import irinque.setmyhome.commands.ListHomesCommand;
+import irinque.setmyhome.commands.SetHomeCommand;
+import irinque.setmyhome.config.MessageManager;
+import irinque.setmyhome.handlers.HomeTeleportManager;
+import irinque.setmyhome.storage.HomeManager;
+import irinque.setmyhome.tabcompleters.HomeTabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Setmyhome extends JavaPlugin {
+    private HomeManager homeManager;
+    private MessageManager messageManager;
+    private HomeTeleportManager homeTeleportManager;
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        saveDefaultConfig();
+        saveResource("messages.yml", false);
+
+        homeManager = new HomeManager(this);
+        messageManager = new MessageManager(this);
+        homeTeleportManager = new HomeTeleportManager(this);
+
+        getCommand("sethome").setExecutor(new SetHomeCommand(this));
+        getCommand("home").setExecutor(new HomeCommand(this));
+        getCommand("delhome").setExecutor(new DelHomeCommand(this));
+        getCommand("listhomes").setExecutor(new ListHomesCommand(this));
+        getCommand("admindelhome").setExecutor(new AdminDelHomeCommand(this));
+        getCommand("adminlisthomes").setExecutor(new AdminListHomesCommand(this));
+
+        HomeTabCompleter homeTabCompleter = new HomeTabCompleter(this);
+        getCommand("sethome").setTabCompleter(homeTabCompleter);
+        getCommand("home").setTabCompleter(homeTabCompleter);
+        getCommand("delhome").setTabCompleter(homeTabCompleter);
+        getCommand("admindelhome").setTabCompleter(homeTabCompleter);
+        getCommand("adminlisthomes").setTabCompleter(homeTabCompleter);
+
+        getServer().getPluginManager().registerEvents(homeTeleportManager, this);
+        getLogger().info("[SetMyHome] Plugin is ready");
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        if (homeTeleportManager != null) {
+            homeTeleportManager.cancelAll();
+        }
+        if (messageManager != null) {
+            messageManager.close();
+        }
+        getLogger().info("[SetMyHome] Plugin is off");
+    }
+
+    public HomeManager getHomeManager() {
+        return homeManager;
+    }
+
+    public MessageManager getMessageManager() {
+        return messageManager;
+    }
+
+    public HomeTeleportManager getHomeTeleportManager() {
+        return homeTeleportManager;
     }
 }

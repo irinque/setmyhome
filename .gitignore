@@ -1,0 +1,27 @@
+# Maven build output
+/target/
+
+# IDE build output and local state
+/out/
+/.idea/shelf/
+/.idea/workspace.xml
+/.idea/tasks.xml
+/.idea/usage.statistics.xml
+/.idea/httpRequests/
+/.idea/dataSources/
+/.idea/dataSources.local.xml
+/.idea/queries/
+
+# Eclipse project files
+/.classpath
+/.project
+/.settings/
+
+# Java and application logs
+*.class
+*.log
+/logs/
+
+# Operating system files
+.DS_Store
+Thumbs.db
