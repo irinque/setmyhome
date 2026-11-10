@@ -102,6 +102,9 @@ public class HomeManager {
         }
 
         String worldName = homeData.getString("world");
+        if (worldName == null) {
+            return null;
+        }
         String worldIdValue = homeData.getString("world-id", "");
         UUID worldId = null;
         if (worldIdValue != null && !worldIdValue.isBlank()) {

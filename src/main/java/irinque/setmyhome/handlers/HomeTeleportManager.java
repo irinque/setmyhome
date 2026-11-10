@@ -69,7 +69,7 @@ public class HomeTeleportManager implements Listener {
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
-        if (!plugin.getConfig().getBoolean("cancel-on-move", false)) {
+        if (!plugin.getConfig().getBoolean("cancel-on-move", false) || event.isCancelled()) {
             return;
         }
 
