@@ -1,0 +1,16 @@
+# Teleport delay in seconds.
+cooldown: 0
+
+# Default maximum number of homes. Additional limits can be granted with
+# homeplugin.limit.<rank> permissions declared below.
+max-homes:
+  default: 15
+#  vip: 5
+#  premium: 10
+#  admin: 50
+
+# Cancel a pending teleport when the player changes block.
+cancel-on-move: false
+
+# Play a sound after a successful home teleport.
+play-sound: true

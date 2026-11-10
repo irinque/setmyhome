@@ -1,5 +1,39 @@
-name: setmyhome
-version: '${version}'
+name: SetHome
+version: '${project.version}'
 
 main: irinque.setmyhome.Setmyhome
 api-version: '1.19'
+
+commands:
+  sethome:
+    description: Creates a home with the given name
+    usage: /<command> <name>
+  home:
+    description: Teleports to a home with the given name
+    usage: /<command> <name>
+  delhome:
+    description: Deletes a home with the given name
+    usage: /<command> <name>
+  listhomes:
+    description: Lists your homes
+    usage: /<command>
+  admindelhome:
+    description: Deletes a home belonging to a player
+    usage: /<command> <player> <home>
+  adminlisthomes:
+    description: Lists the homes belonging to a player
+    usage: /<command> <player>
+
+permissions:
+  homeplugin.sethome:
+    default: true
+  homeplugin.home:
+    default: true
+  homeplugin.delhome:
+    default: true
+  homeplugin.listhomes:
+    default: true
+  homeplugin.admindelhome:
+    default: op
+  homeplugin.adminlisthomes:
+    default: op

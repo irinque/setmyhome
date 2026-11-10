@@ -1,0 +1,32 @@
+# Customize plugin messages with MiniMessage formatting.
+error-player-only: "<red>This command can only be used by players</red>"
+error-no-permission: "<red>You do not have permission to use this command</red>"
+error-invalid-arguments: "<red>Enter a valid home name</red>"
+error-home-not-found: "<red>You have no home with that name</red>"
+error-home-name-invalid: "<red>Home names cannot contain a dot</red>"
+error-home-world-unavailable: "<red>The world for this home is unavailable</red>"
+
+sethome-success: "<green>Created home <yellow>{name}</yellow></green>"
+sethome-already-exists: "<red>You already have a home with that name</red>"
+sethome-max-homes: "<red>You cannot have more than <yellow>{max}</yellow> homes</red>"
+delhome-success: "<green>Removed home <yellow>{name}</yellow></green>"
+
+home-teleport-cooldown: "<yellow>{seconds} seconds left to teleport</yellow>"
+home-teleport-canceled: "<red>Teleportation canceled</red>"
+home-teleport-success: "<green>Teleported to home <yellow>{name}</yellow></green>"
+
+admindelhome-usage: "<red>Usage: /admindelhome <player> <home></red>"
+admindelhome-player-not-found: "<red>Player <yellow>{player}</yellow> was not found</red>"
+admindelhome-success: "<green>Deleted home <yellow>{home}</yellow> from <yellow>{player}</yellow></green>"
+admindelhome-no-homes: "<red>Player <yellow>{player}</yellow> has no homes</red>"
+admindelhome-home-not-found: "<red>Player <yellow>{player}</yellow> has no home named <yellow>{home}</yellow></red>"
+
+adminlisthomes-usage: "<red>Usage: /adminlisthomes <player></red>"
+adminlisthomes-player-not-found: "<red>Player <yellow>{player}</yellow> was not found</red>"
+adminlisthomes-no-homes: "<red>Player <yellow>{player}</yellow> has no homes</red>"
+adminlisthomes-header: "<green>Homes for <yellow>{player}</yellow> (<yellow>{count}</yellow>)</green>"
+adminlisthomes-entry: "<gray>- <yellow>{name}</yellow>: <white>{world}</white> | <blue>X: {x}, Y: {y}, Z: {z}</blue></gray>"
+
+listhomes-no-homes: "<red>You do not have any homes set</red>"
+listhomes-header: "<green>Your homes (<yellow>{count}</yellow>)</green>"
+listhomes-entry: "<gray>- <yellow>{name}</yellow>: <white>{world}</white> | <blue>X: {x}, Y: {y}, Z: {z}</blue></gray>"
