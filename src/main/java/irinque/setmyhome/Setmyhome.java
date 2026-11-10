@@ -9,6 +9,7 @@ import irinque.setmyhome.commands.SetHomeCommand;
 import irinque.setmyhome.config.MessageManager;
 import irinque.setmyhome.handlers.HomeTeleportManager;
 import irinque.setmyhome.storage.HomeManager;
+import irinque.setmyhome.tabcompleters.HomeTabCompleter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Setmyhome extends JavaPlugin {
@@ -31,6 +32,13 @@ public final class Setmyhome extends JavaPlugin {
         getCommand("listhomes").setExecutor(new ListHomesCommand(this));
         getCommand("admindelhome").setExecutor(new AdminDelHomeCommand(this));
         getCommand("adminlisthomes").setExecutor(new AdminListHomesCommand(this));
+
+        HomeTabCompleter homeTabCompleter = new HomeTabCompleter(this);
+        getCommand("sethome").setTabCompleter(homeTabCompleter);
+        getCommand("home").setTabCompleter(homeTabCompleter);
+        getCommand("delhome").setTabCompleter(homeTabCompleter);
+        getCommand("admindelhome").setTabCompleter(homeTabCompleter);
+        getCommand("adminlisthomes").setTabCompleter(homeTabCompleter);
 
         getServer().getPluginManager().registerEvents(homeTeleportManager, this);
         getLogger().info("[SetMyHome] Plugin is ready");
