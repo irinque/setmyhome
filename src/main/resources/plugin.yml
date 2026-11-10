@@ -1,4 +1,4 @@
-name: SetHome
+name: SetMyHome
 version: '${project.version}'
 
 main: irinque.setmyhome.Setmyhome
