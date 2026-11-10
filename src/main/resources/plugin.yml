@@ -1,0 +1,5 @@
+name: setmyhome
+version: '${version}'
+
+main: irinque.setmyhome.Setmyhome
+api-version: '1.19'
