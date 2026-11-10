@@ -1,7 +1,10 @@
 package irinque.setmyhome;
 
+import irinque.setmyhome.commands.AdminDelHomeCommand;
+import irinque.setmyhome.commands.AdminListHomesCommand;
 import irinque.setmyhome.commands.DelHomeCommand;
 import irinque.setmyhome.commands.HomeCommand;
+import irinque.setmyhome.commands.ListHomesCommand;
 import irinque.setmyhome.commands.SetHomeCommand;
 import irinque.setmyhome.config.MessageManager;
 import irinque.setmyhome.handlers.HomeTeleportManager;
@@ -25,6 +28,9 @@ public final class Setmyhome extends JavaPlugin {
         getCommand("sethome").setExecutor(new SetHomeCommand(this));
         getCommand("home").setExecutor(new HomeCommand(this));
         getCommand("delhome").setExecutor(new DelHomeCommand(this));
+        getCommand("listhomes").setExecutor(new ListHomesCommand(this));
+        getCommand("admindelhome").setExecutor(new AdminDelHomeCommand(this));
+        getCommand("adminlisthomes").setExecutor(new AdminListHomesCommand(this));
 
         getServer().getPluginManager().registerEvents(homeTeleportManager, this);
         getLogger().info("[SetMyHome] Plugin is ready");
